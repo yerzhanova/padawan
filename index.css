@@ -1,3 +1,48 @@
-body {
+body{
     /*background: url('./assets/images/background.jpg');*/
+    font-family: Klavika;
+    margin: auto 0;
 }
+
+#monk{
+    position: relative;
+}
+
+ul #pagination {
+    display: inline-block;
+}
+
+li{
+    display: inline;
+    border: 0.1rem dashed;
+    padding: 5px;
+}
+
+@font-face {
+    //klavika_regular
+    font-family: "Klavika";
+    src: url("./assets/font/klavika-regular-webfont.woff") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    //klavika_regular
+    font-family: "Klavika";
+    src: url("./assets/font/klavika-bold-webfont.woff") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    //klavika_regular
+    font-family: "Klavika";
+    src: url("./assets/font/klavika-light-webfont.woff") format("truetype");
+    font-weight: lighter;
+}
+
+@font-face {
+    //klavika_regular
+    font-family: "Klavika";
+    src: url("./assets/font/klavika-medium-webfont.woff") format("truetype");
+    font-weight: bolder;
+}
+
