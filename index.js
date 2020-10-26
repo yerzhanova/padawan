@@ -13,11 +13,18 @@ function init(){
 			showWrapper();
 			return;
 		}
-		drawMonk(timePassed);
+		jumpMonk(timePassed);
 	}, 20);
 	
-
-	function drawMonk(timePassed) {
+	function jumpMonk(timePassed) {
+		if (timePassed < 447) {
+			monk.style.height = timePassed / 3 + 'px';
+			if (timePassed > 298) {
+				message.style.fontSize = timePassed / 24 + 'px'
+			}
+		} else if (timePassed > 2000) {
+			// monk.style.height = 149 - timePassed/150 + 'px';
+		}
 		monk.style.top = timePassed/50 + 'px';
 	}
 	
@@ -30,7 +37,7 @@ function init(){
 		document.body.style.backgroundPosition = '0% 0%';
 		document.body.style.backgroundImage = "url('./assets/images/background.jpg')";
 		document.body.style.backgroundRepeat = 'no-repeat';
-		// footer.style.display = 'block';
+		footer.style.display = 'block';
 	}
 	
 }
@@ -48,22 +55,24 @@ function clickRight() {
 	} else if (currentPage >= 1 && currentPage < 8) {
 		positionX += 12;
 	} else if (currentPage === 8) {
-		positionX += 20;
+		positionX += 15;
 		console.log(40, 'dedd')
+	} else {
+		return;
 	}
 	currentPage++;
 	console.log('move to the right', currentPage);
 	document.body.style.backgroundPosition = positionX+'%';
 }
 function clickLeft(){
-	if (currentPage === 7){
-		positionX -= 25;
-	} else if (currentPage === 1){
+	if (currentPage === 1){
 		positionX -= 15;
-	} else if (currentPage >= 1 && currentPage < 8) {
+	} else if (currentPage >= 1 && currentPage < 9) {
 		positionX -= 12;
-	} else if (currentPage === 8) {
-		positionX -= 20;
+	} else if (currentPage === 9) {
+		positionX -= 15;
+	} else {
+		return;
 	}
 	currentPage--;
 	console.log('move to the left', currentPage);

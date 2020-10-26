@@ -36,10 +36,8 @@ body{
 
 #monk{
     position: relative;
-    /*top: 50%;*/
-    /*left: 52%;*/
-    /*margin-right: -50%;*/
-    /*transform: translate(-50%, -50%)*/
+    margin: 70px;
+    height: 0;
 }
 
 .monk {
@@ -66,6 +64,10 @@ body{
     /*bottom: 20px;*/
 }
 
+.message {
+    margin-top: 50px;
+    font-size: 0px;
+}
 .footer div{
     display: inline-block;
 }
