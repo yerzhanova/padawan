@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" sizes="16x16">
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js"></script>
 </head>
-<body id="body">
-    <!--<img src="./assets/images/background.jpg"></img>-->
-    <img id="monk" src="./assets/images/monk.png">
-    <div id="nav">
-        <ul>
-            <li>&nbsp;</li>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>&nbsp;</li>
-        </ul>
+<body onload="init()">
+    <div class="monk">
+        <img id="monk" src="./assets/images/monk.png" >
+      <p id = "message"></p>
     </div>
-    <p></p>
+    <div id="wrapper" class="wrapper">
+        <div class="leftText">
+            <p>We are breaking<br>our vow<br>of silence</p>
+        </div>
+        <div id="arrow" class="arrow">
+
+            <button id="arrowLeft"  onclick="clickLeft()">Left</button>
+            <p id="arrowRight" onclick="clickRight()">fghdgh></p>
+        </div>
+        <div id="footer" class="footer">
+            <p>In January 2011, after a deacde of digital, we opened the doors to our template.</p>
+            <p>Follow ou noble eightfold path to digital englishtenment here.</p>
+            <div id="nav">
+                <ul>
+                    <li><div>&nbsp;</div></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>&nbsp;</li>
+                </ul>
+            </div>
+            <div class="footerText"><p> fdshn </p></div>
+        </div>
+    </div>
 </body>
 </html>
