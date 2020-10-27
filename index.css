@@ -70,6 +70,11 @@ body{
     padding: 0 42px;
 }
 
+.leftText p{
+    display: inline-block;
+    text-decoration: underline;
+}
+
 #nav{
     margin-top: 50px;
     /*bottom: 20px;*/
@@ -151,10 +156,6 @@ button {
 }
 
 .arrow div{
-    /*font-family: sans-serif;*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*margin-bottom: 100px;*/
     display: inline-block;
 }
 
@@ -167,13 +168,58 @@ button {
 .arrowRight p{
     text-align: right;
 }
+
 #leftTooltip{
     text-decoration: underline;
-    /*float: left;*/
 }
 #rightTooltip {
-    /*float: right;*/
     text-decoration: underline;
+}
+
+.move12 {
+    animation: slide12 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.move8 {
+    animation: slide8 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.remove12 {
+    animation: reslide12 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.move7 {
+    animation: slide7 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.remove8 {
+    animation: reslide8 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.move15 {
+    animation: slide15 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.remove15 {
+    animation: reslide15 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.hide {
+    animation: hideWrapper 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.show {
+    animation: hideWrapper 2s linear;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
 }
 @keyframes messagePadawan {
     0% {
@@ -192,18 +238,61 @@ button {
         opacity: 0;
     }
     100% {
-        opacity: 100%;
+        opacity: 100;
     }
 }
 
-@keyframes slide15 {
+@keyframes hideWrapper {
     0% {
-        background-position: 0;
-        /*height: 0*/
+        opacity: 100;
     }
     100% {
-        background-position: 15%;
-        /*height: 100%*/
+        opacity: 0;
+    }
+}
+
+@keyframes slide7 {
+    0% {
+        background-position: 90%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+@keyframes slide12 {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 12%;
+    }
+}
+
+@keyframes reslide12 {
+    0% {
+        background-position: 12%;
+    }
+    100% {
+        background-position: 0%;
+    }
+}
+
+@keyframes slide8 {
+    0% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 115%;
+    }
+}
+
+@keyframes reslide8 {
+    0% {
+        background-position: 22%;
+    }
+    100% {
+        background-position: 12%;
     }
 }
 
