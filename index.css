@@ -76,7 +76,7 @@ body{
 }
 
 .message {
-    margin-top: 50px;
+    margin-top: 48px;
     opacity: 0;
     animation: messagePadawan 2s ease-in;
     animation-delay: 1s;
@@ -92,10 +92,12 @@ body{
     margin-top: 0.2em; /* Отступ сверху */
     margin-bottom: 0.3em;
     font-size: 14px;
+    font-weight: normal;
 }
 
-.arrow p{
-    font-size: 38px;
+.arrow{
+    margin: 0;
+    font-size: 52px;
     font-weight: bold;
 }
 
@@ -106,19 +108,18 @@ body{
 a:hover{
     animation: slide15 1s linear;
 }
+
 button:hover{
     animation: slide15 2s linear;
 }
 
-/*.arrowRight {*/
-    /*text-align: right;*/
-/*}*/
+#arrowRight{
+    float: right;
+}
 
-/*.square {*/
-    /*height: 8px;*/
-    /*width: 8px;*/
-    /*background-color: #fff;*/
-/*}*/
+#arrowLeft {
+    float: left;
+}
 
 .footerText{
     font-weight: normal;
@@ -134,7 +135,7 @@ li{
     padding: 5px;
 }
 
-li div:first-child {
+.active {
     height: 12px;
     width: 16px;
     background-color: #fff;
@@ -149,13 +150,31 @@ button {
     color: #fff;
 }
 
-.arrow{
+.arrow div{
     /*font-family: sans-serif;*/
     /*position: absolute;*/
     /*top: 50%;*/
     /*margin-bottom: 100px;*/
+    display: inline-block;
 }
 
+.arrow p{
+    display: inline-block;
+    text-transform: uppercase;
+    max-width: 25%;
+}
+
+.arrowRight p{
+    text-align: right;
+}
+#leftTooltip{
+    text-decoration: underline;
+    /*float: left;*/
+}
+#rightTooltip {
+    /*float: right;*/
+    text-decoration: underline;
+}
 @keyframes messagePadawan {
     0% {
         opacity: 0;
@@ -201,22 +220,25 @@ button {
 
 @keyframes jump {
     0% {
-        top: 320px;
+        top: 50%;
     }
     15%{
-        top: 340px;
+        top: 45%;
     }
     30% {
-        top: 330px;
+        top: 50%;
     }
     45% {
-        top: 340px;
+        top: 40%;
     }
     60% {
-        top: 320px;
+        top: 50%;
+    }
+    80% {
+        top: 45%
     }
     100% {
-        top: 340px;
+        top: 50%;
     }
 }
 

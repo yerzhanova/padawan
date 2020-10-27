@@ -15,28 +15,33 @@
             <p>We are breaking<br>our vow<br>of silence</p>
         </div>
         <div id="arrow" class="arrow">
-
-            <p id="arrowLeft"  onclick="clickLeft()"><</p>
-            <p id="arrowRight" >dhyfjyj</p>
+            <div id="arrowLeft" class="arrowLeft" onclick="clickLeft()">
+                <p><</p>
+                <p id="leftTooltip"></p>
+            </div>
+            <div id="arrowRight" class="arrowRight" onclick="clickRight()">
+                <p id="rightTooltip"></p>
+                <p>></p>
+            </div>
         </div>
         <div id="footer" class="footer">
-            <p>In January 2011, after a deacde of digital, we opened the doors to our template.</p>
-            <p>Follow ou noble eightfold path to digital englishtenment here.</p>
+            <p>In January 2011, after a decade of digital, we opened the doors to our template.</p>
+            <p>Follow ou noble eightfold path to digital englightenment here.</p>
             <div id="nav">
-                <ul>
+                <ul id="navigate">
+                    <li><div class="active">&nbsp;</div></li>
+                    <li><div>1</div></li>
+                    <li><div>2</div></li>
+                    <li><div>3</div></li>
+                    <li><div>4</div></li>
+                    <li><div>5</div></li>
+                    <li><div>6</div></li>
+                    <li><div>7</div></li>
+                    <li><div>8</div></li>
                     <li><div>&nbsp;</div></li>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>&nbsp;</li>
                 </ul>
             </div>
-            <div class="footerText"><p> fdshn </p></div>
+            <div class="footerText"><p id="pageMessage"></p></div>
         </div>
     </div>
 </body>
