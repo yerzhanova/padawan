@@ -14,6 +14,8 @@ function init(){
 	const arrowRight = document.querySelector('.arrowRight');
     const leftTooltip = document.getElementById('leftTooltip');
     const rightTooltip = document.getElementById('rightTooltip');
+    const leftMessage = document.querySelector('.leftMessage h1');
+    const rightMessage = document.querySelector('.rightMessage h1');
     const pagesPosition = [0, 8, 23, 37, 51, 65, 80, 100, 100, 115];
 	animateText();
     document.body.addEventListener('animationend', function(){
@@ -52,11 +54,22 @@ function init(){
 		}
 		if (pageNumber === 9) {
 			rightTooltip.style.opacity = 1;
-			arrowRight.classList.add('contacts');
-			arrowRight.innerHTML = "fsgkjl"
+            document.getElementById('lastPage').style.display = 'inline-block';
+			// animateEvents(document.getElementById('lastPage'), 'show');
 		} else if (currentPage === 9) {
 			rightTooltip.style.opacity = 0;
+            document.getElementById('lastPage').style.display = 'none';
 		}
+
+		if ((pageNumber > 0 && pageNumber < 3)|| (pageNumber > 5 && pageNumber < 9)) {
+            rightMessage.innerHTML = "";
+            leftMessage.innerHTML = tooltips[pageNumber - 1];
+            animateEvents(leftMessage, 'show');
+        } else if (pageNumber > 2 && pageNumber < 6) {
+            leftMessage.innerHTML = "";
+            rightMessage.innerHTML = tooltips[pageNumber - 1];
+            animateEvents(rightMessage, 'show');
+        }
         lastPage = pageNumber;
         currentPage = pageNumber;
 	}
