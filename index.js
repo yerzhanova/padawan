@@ -16,7 +16,6 @@ function init(){
     const rightTooltip = document.getElementById('rightTooltip');
     const pagesPosition = [0, 8, 23, 37, 51, 65, 80, 100, 100, 115];
 	animateText();
-	loadPage(0);
     document.body.addEventListener('animationend', function(){
         document.body.style.backgroundImage = "url('./assets/images/background.jpg')";
         // document.body.style.backgroundPosition = "0%";
