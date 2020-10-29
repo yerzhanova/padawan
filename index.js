@@ -1,170 +1,71 @@
-const tooltips = ['Talent is given true skill is earned', 'Be flexible to change and sturdy in conviction', 'use many' +
-' skills yet work as one', 'To master anything find interest in everything', 'individuals flourish if culture and' +
-' wisdom are shared', 'train for perfection but aim for more', 'take pride in your work but do not seek praize', 'temporary sacrifice brings lasting results' ];
-
-let positionX = 0;
-let currentPage = 0;
-let footerText = null;
-let pages = null;
-let footerMessage = null;
-
+let lastPage = 0;
 function init(){
-	const pagination = document.getElementById('navigate').children;
+    const tooltips = ['Talent is given true skill is earned', 'Be flexible to change and sturdy in conviction', 'use many' +
+    ' skills yet work as one', 'To master anything find interest in everything', 'individuals flourish if culture and' +
+    ' wisdom are shared', 'train for perfection but aim for more', 'take pride in your work but do not seek praize', 'temporary sacrifice brings lasting results' ];
+    const pagination = document.getElementById('navigate').children;
+    let currentPage = 0;
 	const right = document.getElementById('arrowRight').getElementsByTagName('p')[0];
-	body = document.body.classList;
 	pagination[currentPage].style.class = 'active';
-	pages = document.getElementById('navigate').getElementsByTagName('li');
-	footerMessage = document.getElementsByClassName('footerText')[0].children[0];
-	footerText = document.querySelectorAll("div.footer > p");
-
+	const pages = document.getElementById('navigate').getElementsByTagName('li');
+	const footerMessage = document.querySelector('.footerText > p');
+	const footerText = document.querySelectorAll("div.footer > p");
+	const arrowLeft = document.querySelector('.arrowLeft');
+	const arrowRight = document.querySelector('.arrowRight');
+    const leftTooltip = document.getElementById('leftTooltip');
+    const rightTooltip = document.getElementById('rightTooltip');
+    const pagesPosition = [0, 8, 23, 37, 51, 65, 80, 100, 100, 115];
 	animateText();
-	document.body.addEventListener('animationend', function(){
-		console.log("animation end");
-		document.body.style.backgroundImage = "url('./assets/images/background.jpg')";
+    document.body.addEventListener('animationend', function(){
+        document.body.style.backgroundImage = "url('./assets/images/background.jpg')";
+        // document.body.style.backgroundPosition = "0%";
+    });
+    // pagination
+    document.getElementById('arrowRight').addEventListener('click', (e) => {
+		if (currentPage < 9)
+			loadPage(currentPage + 1);
 	});
-
-	for (let p of footerText){
-		p.addEventListener('animationend', function () {
-			console.log('footer p animation end');
-			if (currentPage === 0) {
-				console.log("p cl", p.classList);
-				// p.classList.remove('hide');
-			} else if (currentPage === 1) {
-				console.log("p cl 1", p.classList)
-			}
-		});
-	}
+    document.getElementById('arrowLeft').addEventListener('click', (e) => {
+    	if (currentPage > 0)
+        	loadPage(currentPage - 1);
+	});
 	for (let i=0; i < pages.length; i++){
-		pages[i].querySelector('div').addEventListener('click', function (){
+		pages[i].querySelector('div').addEventListener('click', (e) => {
 			loadPage(i);
 		})
 	}
-	
+	//
 	function loadPage (pageNumber){
-		document.querySelector('div.active').classList.remove('active');
-		pages[pageNumber].getElementsByTagName('div')[0].classList.add("active");
-		if (pageNumber === 8) {
-			document.getElementById('leftText').getElementsByTagName('p')[0].classList.add('hide');
-			document.getElementById('leftText').getElementsByTagName('p')[1].classList.add('show');
-		} else {
-			document.getElementById('leftText').getElementsByTagName('p')[0].classList.remove('show');
-			document.getElementById('leftText').getElementsByTagName('p')[0].classList.add('hide');
-		}
-		console.log('do smth', pageNumber);
-		for (let i=0; i < 9; i++){
-			document.body.classList.remove(`move${pageNumber}`)
-		}
-		document.body.classList.add(`move${pageNumber}`);
+	    //pagination animation
+        document.querySelector('div.active').classList.remove('active');
+        pages[pageNumber].getElementsByTagName('div')[0].classList.add("active");
+        console.log("pagenumbers", lastPage, pageNumber);
+        //text of footer animation
+        footerMessage.innerHTML = pageNumber < 9&& pageNumber > 0?`Step ${pageNumber} of 8 on the path to digital enlightenment.`:'';
+        // leftTooltip.innerHTML = ((pageNumber > 0 && pageNumber < 3) || (pageNumber > 5 && pageNumber < 9))?tooltips[currentPage]:'';
+        animateEvents(footerMessage, 'show');
+        document.body.style.backgroundPosition = pagesPosition[pageNumber] + "%";
+
+        lastPage = pageNumber;
+        currentPage = pageNumber;
 	}
-	
-}
-function animateText() {
-	let messageInner = document.getElementById('message');
-	let message1 = 'Patience!';
-	let message2 = ', young padawan...';
-	setTimeout(() => {messageInner.innerHTML = message1}, 100);
-	setTimeout(() => {messageInner.innerHTML = messageInner.innerHTML.slice(0, -1) + (message2)}, 1500);
-}
-function clickRight() {
-	if (currentPage < 9) {
-		if (currentPage === 0) {
-			// document.body.classList.add('move12');
-			// document.body.classList.remove('remove12');
-			console.log(document.querySelectorAll("div.footer > p"), "gg");
-			document.getElementById('leftText').getElementsByTagName('p')[0].classList.remove('show');
-			document.getElementById('leftText').getElementsByTagName('p')[0].classList.add('hide');
-			console.log(footerText);
-			for (let p of footerText) {
-				p.classList.add('hide');
-				p.classList.remove('show');
-			}
-		} else {
-		}
-		let leftTooltip = document.getElementById('leftTooltip');
-		let rightTooltip = document.getElementById('rightTooltip');
-		console.log("click right", currentPage);
-		pages[currentPage].getElementsByTagName('div')[0].classList.remove("active");
-		pages[currentPage + 1].getElementsByTagName('div')[0].classList.add("active");
-		footerMessage.innerHTML = currentPage < 8?`Step ${currentPage + 1} of 8 on the path to digital enlightenment.`:'';
-		// if (currentPage === 0) {
-		// 	// positionX += 15;
-		// 	document.body.classList.add('move15');
-		// 	// setTimeout(() => {
-		// 	// 	// document.body.classList.remove('move15');
-		// 	// }, 1000);
-		// // } else if (currentPage >= 1 && currentPage < 8) {
-		// // 	positionX += 12;
-		// // 	console.log("list", document.body.classList);
-		// 	document.body.classList.add('move12');
-		// 	// document.body.classList.add('move12');
-		// } else if (currentPage === 8) {
-		// 	// positionX += 15;
-		// 	// console.log(40, 'dedd')
-		// } else {
-		// 	return;
-		// }
-		// let changePage = () => {
-		// 	console.log(currentPage);
-		// 	console.log(pages[currentPage + 1].getElementsByTagName('div')[0], "fffss");
-		//
-		// 	if (currentPage < 2 || currentPage > 6) {
-		// 		// leftTooltip.animate({opacity: 0}, 1000);
-		// 		rightTooltip.animate({opacity: 0}, 1000);
-		// 		// pages[currentPage + 1].getElementsByTagName('div')[0].style.className = 'active';
-		// 		leftTooltip.innerHTML = tooltips[currentPage];
-		// 	} else if (currentPage >= 2 && currentPage < 5) {
-		// 		// rightTooltip.animate({opacity: 0}, 1000);
-		//
-		// 		leftTooltip.animate({opacity: 0}, 1000);
-		// 		leftTooltip.style.display = 'none';
-		// 		rightTooltip.innerHTML = tooltips[currentPage];
-		// 	}
-		// };
-		// let options = {"duration": 1000};
-		// let leftPos = {"backgroundPosition": "0%"};
-		// let rigthPos = {"backgroundPosition": "15%"};
-		// let p = document.getElementsByClassName('footerText')[0];
-		// document.body.animate(rigthPos, options, changePage());
-		currentPage++;
-		
-	}
+    function animateText() {
+        let messageInner = document.getElementById('message');
+        let message1 = 'Patience!';
+        let message2 = ', young padawan...';
+        setTimeout(() => {messageInner.innerHTML = message1}, 100);
+        setTimeout(() => {messageInner.innerHTML = messageInner.innerHTML.slice(0, -1) + (message2)}, 1500);
+    }
+    function animateEvents(element, className) {
+        //if element has not className
+        element.classList.remove(className);
+        window.requestAnimationFrame( function () {
+            element.classList.add(className);
+        });
+    }
 }
 
 
 
-function clickLeft(){
-	if (currentPage > 0) {
-		console.log('click left', currentPage);
-		if (currentPage === 1) {
-			console.log(document.body.classList);
-			// document.body.classList.add('remove12');
-			// document.body.classList.remove('move12');
-			document.getElementById('leftText').getElementsByTagName('p')[0].classList.remove('hide');
-			document.getElementById('leftText').getElementsByTagName('p')[0].classList.add('show');
-			for (let p of footerText) {
-				p.classList.add('show');
-				p.classList.remove('hide');
-			}
-		} else {
-		}
-		pages[currentPage].getElementsByTagName('div')[0].classList.remove("active");
-		pages[currentPage - 1].getElementsByTagName('div')[0].classList.add("active");
-		footerMessage.innerHTML = currentPage > 1?`Step ${currentPage - 1} of 8 on the path to digital enlightenment.`:'';
-		
-		// } else if (currentPage >= 1 && currentPage < 9) {
-		//
-		// 	// positionX -= 12;
-		// } else if (currentPage === 9) {
-		// 	// positionX -= 15;
-		// } else {
-		// 	return;
-		// }
-		//
-		// console.log('move to the left', currentPage);
-		// document.body.style.backgroundPosition = positionX + '%';
-		currentPage--;
-		console.log("currentPage", currentPage)
-	}
-}
 
 

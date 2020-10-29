@@ -11,18 +11,35 @@
         <p id="message" class="message">Patience!</p>
     </div>
     <div id="wrapper" class="wrapper">
-        <div id="leftText" class="leftText" >
-            <p>We are breaking<br>our vow<br>of silence</p>
-            <p style="float: right; opacity: 0;">We of silence</p>
+        <!--<div id="leftText" class="leftText" >-->
+            <!--<p>We are breaking<br>our vow<br>of silence</p>-->
+            <!--<p style="float: right; opacity: 0;">We of silence</p>-->
+        <!--</div>-->
+        <!--<div id="arrow" class="arrow">-->
+            <!--<div id="arrowLeft" class="arrowLeft">-->
+                <!--<p><</p>-->
+                <!--<p id="leftTooltip">aaaa</p>-->
+            <!--</div>-->
+            <!--<div id="arrowRight" class="arrowRight">-->
+                <!--<p id="rightTooltip">bbbb</p>-->
+                <!--<p>></p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div id="pageText">
+            <div id="leftTooltip">
+                <h1>left</h1>
+            </div>
+
+            <div id="rightTooltip">
+                <h1>right</h1>
+            </div>
         </div>
         <div id="arrow" class="arrow">
-            <div id="arrowLeft" class="arrowLeft" onclick="clickLeft()">
-                <p><</p>
-                <p id="leftTooltip"></p>
+            <div id="arrowLeft" class="arrowLeft">
+                <!--<p><</p>-->
             </div>
-            <div id="arrowRight" class="arrowRight" onclick="clickRight()">
-                <p id="rightTooltip"></p>
-                <p>></p>
+            <div id="arrowRight" class="arrowRight">
+                <!--<p>></p>-->
             </div>
         </div>
         <div id="footer" class="footer">
@@ -44,6 +61,9 @@
             </div>
             <div class="footerText"><p id="pageMessage"></p></div>
         </div>
+        <a href="https://www.mediamonks.com/">
+            <img class="logo" src="./assets/images/logo.svg" alt="logo">
+        </a>
     </div>
 </body>
 </html>

@@ -2,22 +2,28 @@
 html,
 body {
     height: 100%;
-    font-family: Klavika italic;
+    /*font-family: Klavika italic;*/
     overflow:  hidden;
 }
 
 body{
     /*background-position: 0;*/
     background-color: #000;
-    background-position: 40%;
+    /*background-position: 40%;*/
     background-repeat: no-repeat;
     background-image: url('./assets/images/interface.png');
     background-size: cover;
     margin: auto 0;
     color: #fff;
-    animation: switch .5s linear;
-    animation-fill-mode: forwards;
-    animation-delay: 3s;
+    transition: background-position 1.5s ease-in-out;
+    font-family: Klavika-light;
+}
+
+.logo {
+    position: absolute;
+    width: 100px;
+    bottom: 20px;
+    right: 30px;
 }
 
 .wrapper {
@@ -38,7 +44,7 @@ body{
     width: 100%;
     height: 200px;
     font-weight: bold;
-    font-size: 9px;
+    font-size: 10px;
 }
 
 #monk{
@@ -73,11 +79,17 @@ body{
 .leftText p{
     display: inline-block;
     text-decoration: underline;
+    opacity: 0;
+}
+
+#pageText div{
+    display: inline-block;
+    text-decoration: underline;
+    /*opacity: 0;*/
 }
 
 #nav{
     margin-top: 50px;
-    /*bottom: 20px;*/
 }
 
 .message {
@@ -94,20 +106,25 @@ body{
 
 .footer p{
     padding-left: 42px;
-    margin-top: 0.2em; /* Отступ сверху */
+    margin-top: 0.2em;
     margin-bottom: 0.3em;
     font-size: 14px;
     font-weight: normal;
+    opacity: 0;
 }
 
 .arrow{
     margin: 0;
     font-size: 52px;
     font-weight: bold;
-}
-
-.arrow p:hover {
-
+    width: 100%;
+    min-height: 100px;
+    /*position: absolute;*/
+    /*width: 50px;*/
+    /*height: 50px;*/
+    top: 40%;
+    left: 30px;
+    cursor: pointer;
 }
 
 a:hover{
@@ -120,10 +137,21 @@ button:hover{
 
 #arrowRight{
     float: right;
+    width: 35px;
+    height: 35px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transform: rotate(135deg);
 }
 
 #arrowLeft {
     float: left;
+    /*display: none;*/
+    width: 35px;
+    height: 35px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transform: rotate(-45deg);
 }
 
 .footerText{
@@ -142,7 +170,7 @@ li{
 
 .active {
     height: 12px;
-    width: 16px;
+    width: 12px;
     background-color: #fff;
 }
 
@@ -156,13 +184,13 @@ button {
 }
 
 .arrow div{
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 .arrow p{
     display: inline-block;
     text-transform: uppercase;
-    max-width: 25%;
+    max-width: 30%;
 }
 
 .arrowRight p{
@@ -176,51 +204,16 @@ button {
     text-decoration: underline;
 }
 
-.move12 {
-    animation: slide12 1s linear;
-    animation-fill-mode: forwards;
-}
-
-.move8 {
-    animation: slide8 1s linear;
-    animation-fill-mode: forwards;
-}
-
-.remove12 {
-    animation: reslide12 1s linear;
-    animation-fill-mode: forwards;
-}
-
-.move7 {
-    animation: slide7 1s linear;
-    animation-fill-mode: forwards;
-}
-
-.remove8 {
-    animation: reslide8 1s linear;
-    animation-fill-mode: forwards;
-}
-
-.move15 {
-    animation: slide15 1s linear;
-    animation-fill-mode: forwards;
-}
-
-.remove15 {
-    animation: reslide15 1s linear;
-    animation-fill-mode: forwards;
-}
-
 .hide {
-    animation: hideWrapper 1s linear;
+    animation: hideWrapper 2s linear;
     animation-fill-mode: forwards;
 }
 
 .show {
-    animation: hideWrapper 2s linear;
+    animation: showWrapper 2s linear;
     animation-fill-mode: forwards;
-    animation-direction: reverse;
 }
+
 @keyframes messagePadawan {
     0% {
         opacity: 0;
@@ -248,51 +241,6 @@ button {
     }
     100% {
         opacity: 0;
-    }
-}
-
-@keyframes slide7 {
-    0% {
-        background-position: 90%;
-    }
-    100% {
-        background-position: 100%;
-    }
-}
-
-@keyframes slide12 {
-    0% {
-        background-position: 0;
-    }
-    100% {
-        background-position: 12%;
-    }
-}
-
-@keyframes reslide12 {
-    0% {
-        background-position: 12%;
-    }
-    100% {
-        background-position: 0%;
-    }
-}
-
-@keyframes slide8 {
-    0% {
-        background-position: 100%;
-    }
-    100% {
-        background-position: 115%;
-    }
-}
-
-@keyframes reslide8 {
-    0% {
-        background-position: 22%;
-    }
-    100% {
-        background-position: 12%;
     }
 }
 
@@ -348,30 +296,27 @@ button {
 }
 
 @font-face {
-    //klavika_regular
-    font-family: "Klavika";
+    font-family: Klavika-regular;
     src: url("./assets/font/klavika-regular-webfont.woff") format("truetype");
     font-weight: normal;
 }
 
 @font-face {
-    //klavika_regular
-    font-family: "Klavika";
+    font-family: Klavika-light;
+    src: url('./assets/font/klavika-light-webfont.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Klavika-medium;
+    src: url("./assets/font/klavika-medium-webfont.woff") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Klavika-bold;
     src: url("./assets/font/klavika-bold-webfont.woff") format("truetype");
     font-weight: bold;
-}
-
-@font-face {
-    //klavika_regular
-    font-family: "Klavika";
-    src: url("./assets/font/klavika-light-webfont.woff") format("truetype");
-    font-weight: lighter;
-}
-
-@font-face {
-    //klavika_regular
-    font-family: "Klavika";
-    src: url("./assets/font/klavika-medium-webfont.woff") format("truetype");
-    font-weight: bolder;
 }
 
