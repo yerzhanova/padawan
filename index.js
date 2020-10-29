@@ -53,6 +53,8 @@ function init(){
 		}
 		if (pageNumber === 9) {
 			rightTooltip.style.opacity = 1;
+			arrowRight.classList.add('contacts');
+			arrowRight.innerHTML = "fsgkjl"
 		} else if (currentPage === 9) {
 			rightTooltip.style.opacity = 0;
 		}

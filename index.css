@@ -22,8 +22,12 @@ body{
     width: 100px;
     bottom: 20px;
     right: 30px;
+    fill: green;
 }
 
+svg{
+    fill: red;
+}
 .wrapper {
     position: relative;
     min-height: 100%;
@@ -185,6 +189,11 @@ button {
     display: inline-block;
     text-transform: uppercase;
     max-width: 30%;
+}
+
+.contacts {
+    font-size: 12px;
+    transform: rotate(-135deg);
 }
 
 .arrowRight p{
