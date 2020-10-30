@@ -34,9 +34,8 @@ svg{
     display: block;
     opacity: 0;
     color: #fff;
-    animation: showWrapper 0.5s linear;
-    animation-delay: 3s;
-    animation-fill-mode: forwards;
+    animation: showWrapper 0.5s linear 3s forwards;
+    -webkit-animation: showWrapper 0.5s linear 3s forwards;
 }
 
 .footer {
@@ -53,8 +52,8 @@ svg{
     /*position: absolute;*/
     margin: 70px;
     height: 0;
-    animation: arize 3s ease-in;
-    animation-fill-mode: backwards;
+    animation: arize 3s ease-in 0s backwards;
+    -webkit-animation: arize 3s ease-in 0s backwards;
 }
 
 .monk {
@@ -64,18 +63,17 @@ svg{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    animation: jump 3s ease-in-out;
-    animation-delay: 0s;
-    animation-fill-mode: backwards;
+    animation: jump 3s ease-in-out 0s backwards;
+    -webkit-animation: jump 3s ease-in-out 0s backwards;
 }
 
-.leftText {
+.pageText {
     margin: 0;
     text-transform: uppercase;
-    font-family: sans-serif;
     text-decoration: underline;
-    font-size: 52px;
+    font-size: 28px;
     padding: 0 42px;
+    min-height: 200px;
 }
 
 .leftText p{
@@ -88,12 +86,8 @@ svg{
     display: inline-block;
     text-decoration: underline;
     text-transform: uppercase;
-    /*opacity: 0;*/
 }
 
-.pageText {
-    min-height: 200px;
-}
 #nav{
     margin-top: 50px;
 }
@@ -101,9 +95,8 @@ svg{
 .message {
     margin-top: 48px;
     opacity: 0;
-    animation: messagePadawan 2s ease-in;
-    animation-delay: 1s;
-    animation-fill-mode: backwards;
+    animation: messagePadawan 2s ease-in 1s backwards;
+    -webkit-animation: messagePadawan 2s ease-in 1s backwards;
 }
 
 .footer div{
@@ -125,15 +118,13 @@ svg{
     width: 100%;
     min-height: 100px;
     top: 40%;
+    font-size: 26px;
+    text-decoration: underline;
     cursor: pointer;
 }
 
-button:hover{
-    animation: slide15 2s linear;
-}
-
 #arrowRight{
-    margin: 40px;
+    margin: 0 30px;
     float: right;
     width: 35px;
     height: 35px;
@@ -143,7 +134,7 @@ button:hover{
 }
 
 #arrowLeft {
-    margin: 40px;
+    margin: 0 30px;
     float: left;
     width: 35px;
     height: 35px;
@@ -169,25 +160,34 @@ ul #pagination {
     display: inline-block;
 }
 
-li{
+li {
     display: inline;
+}
+
+.footer li{
     border: 0.1rem dashed;
     padding: 5px;
 }
 
+li a,
+li a:active,
+li a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
 li div{
     padding: 0 6px;
+}
+
+li div:hover{
+    cursor: pointer;
 }
 .active {
     height: 13px;
     background-color: #fff;
 }
 
-.lastPage{
-    /*display: none;*/
-    float: right;
-    left: 50%
-}
 button {
     cursor: pointer;
     position: relative;
@@ -197,13 +197,24 @@ button {
     color: #fff;
 }
 
-.arrow div{
+.arrow > div{
     display: inline-block;
 }
 
 .arrow h1{
+    top: 30%;
     text-transform: uppercase;
 }
+
+.lastPage{
+    text-align: right;
+    right: 10%;
+    display: none;
+    position: absolute;
+    line-height: 4px;
+    font-size: 14px;
+}
+
 .contacts {
     font-size: 12px;
     transform: rotate(-135deg);
@@ -217,25 +228,63 @@ button {
     text-decoration: underline;
     float: left;
     transition: opacity 1s linear;
+    margin: 30px;
 }
 #rightTooltip {
     text-decoration: underline;
     float: right;
     transition: opacity 1s linear;
     opacity: 0;
+    margin: 30px;
 }
 
 .hide {
-    animation: hideWrapper 2s linear;
-    animation-fill-mode: forwards;
+    animation: hideWrapper 2s linear 0s forwards;
+    -webkit-animation: hideWrapper 2s linear 0s forwards;
 }
 
 .show {
-    animation: showWrapper 2s linear;
-    animation-fill-mode: forwards;
+    animation: showWrapper 2s linear 0s forwards;
+    -webkit-animation: showWrapper 2s linear 0s forwards;
+}
+
+.email {
+    width: 1.5%;
+    height: 1.5%;
+    margin: 0 8px;
+}
+
+.twitter {
+    width: 1.2%;
+    height: 1.2%;
+    margin: 0 2px;
+}
+
+.facebook {
+    width: 1%;
+    height: 1%;
+    margin: 0 6px;
+}
+
+.lastPage a,
+.lastPage a:active,
+.lastPage a:visited {
+    color: #fff;
 }
 
 @keyframes messagePadawan {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 100;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+@-webkit-keyframes  messagePadawan {
     0% {
         opacity: 0;
     }
@@ -256,6 +305,15 @@ button {
     }
 }
 
+@-webkit-keyframes  showWrapper {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
 @keyframes hideWrapper {
     0% {
         opacity: 100;
@@ -265,14 +323,12 @@ button {
     }
 }
 
-@keyframes switch {
+@-webkit-keyframes  hideWrapper {
     0% {
-        background-image: url('./assets/images/interface.png');
-        background-position: 42% 0%;
+        opacity: 100;
     }
     100% {
-        background-image: url('./assets/images/background.jpg');
-        background-position: 0% 0%;
+        opacity: 0;
     }
 }
 
@@ -300,7 +356,47 @@ button {
     }
 }
 
+@-webkit-keyframes  jump {
+    0% {
+        top: 50%;
+    }
+    15%{
+        top: 45%;
+    }
+    30% {
+        top: 50%;
+    }
+    45% {
+        top: 40%;
+    }
+    60% {
+        top: 50%;
+    }
+    80% {
+        top: 45%
+    }
+    100% {
+        top: 50%;
+    }
+}
+
 @keyframes arize {
+    0% {
+        /*top: 300px;*/
+        height: 0px;
+    }
+
+    50% {
+        /*top: 350px;*/
+        height: 149px;
+    }
+    100% {
+        /*top: 350px;*/
+        height: 149px;
+    }
+}
+
+@-webkit-keyframes  arize {
     0% {
         /*top: 300px;*/
         height: 0px;

@@ -1,9 +1,8 @@
-let lastPage = 0;
 function init(){
+	let lastPage = 0;
     const tooltips = ['Talent is given true skill is earned', 'Be flexible to change and sturdy in conviction', 'use many' +
     ' skills yet work as one', 'To master anything find interest in everything', 'individuals flourish if culture and' +
     ' wisdom are shared', 'train for perfection but aim for more', 'take pride in your work but do not seek praize', 'temporary sacrifice brings lasting results' ];
-    const pagination = document.getElementById('navigate').children;
     let currentPage = 0;
 	// const right = document.getElementById('arrowRight').getElementsByTagName('p')[0];
 
@@ -16,11 +15,10 @@ function init(){
     const rightTooltip = document.getElementById('rightTooltip');
     const leftMessage = document.querySelector('.leftMessage h1');
     const rightMessage = document.querySelector('.rightMessage h1');
-    const pagesPosition = [0, 8, 23, 37, 51, 65, 80, 100, 100, 115];
+    const pagesPosition = [0, 12, 23, 36, 50, 65, 80, 100, 100, 115];
 	animateText();
     document.body.addEventListener('animationend', function(){
         document.body.style.backgroundImage = "url('./assets/images/background.jpg')";
-        // document.body.style.backgroundPosition = "0%";
     });
     // pagination
     document.getElementById('arrowRight').addEventListener('click', (e) => {
@@ -41,21 +39,23 @@ function init(){
 	    //pagination animation
         document.querySelector('div.active').classList.remove('active');
         pages[pageNumber].getElementsByTagName('div')[0].classList.add("active");
-        console.log("pagenumbers", lastPage, pageNumber);
         //text of footer animation
         footerMessage.innerHTML = pageNumber < 9&& pageNumber > 0?`Step ${pageNumber} of 8 on the path to digital enlightenment.`:'';
-        // leftTooltip.innerHTML = ((pageNumber > 0 && pageNumber < 3) || (pageNumber > 5 && pageNumber < 9))?tooltips[currentPage]:'';
         animateEvents(footerMessage, 'show');
         document.body.style.backgroundPosition = pagesPosition[pageNumber] + "%";
+        
 		if (pageNumber === 0) {
 			leftTooltip.style.opacity = 1;
+			leftMessage.innerHTML = "";
+			animateEvents(leftMessage, 'hide');
 		} else if (currentPage === 0) {
 			leftTooltip.style.opacity = 0;
 		}
+		
 		if (pageNumber === 9) {
 			rightTooltip.style.opacity = 1;
-            document.getElementById('lastPage').style.display = 'inline-block';
-			// animateEvents(document.getElementById('lastPage'), 'show');
+			leftMessage.innerHTML = "";
+			setTimeout(()=> document.getElementById('lastPage').style.display = 'block', 900);
 		} else if (currentPage === 9) {
 			rightTooltip.style.opacity = 0;
             document.getElementById('lastPage').style.display = 'none';
@@ -70,6 +70,7 @@ function init(){
             rightMessage.innerHTML = tooltips[pageNumber - 1];
             animateEvents(rightMessage, 'show');
         }
+        
         lastPage = pageNumber;
         currentPage = pageNumber;
 	}
