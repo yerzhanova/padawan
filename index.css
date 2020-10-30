@@ -6,7 +6,6 @@ body {
 }
 
 body{
-    /*background-position: 0;*/
     background-color: #000;
     background-repeat: no-repeat;
     background-image: url('./assets/images/interface.png');
@@ -17,17 +16,16 @@ body{
     font-family: Klavika-light;
 }
 
+h1 {
+    border-bottom: 1px solid #fff;
+}
 .logo {
     position: absolute;
     width: 100px;
     bottom: 20px;
     right: 30px;
-    fill: green;
 }
 
-svg{
-    fill: red;
-}
 .wrapper {
     position: relative;
     min-height: 100%;
@@ -49,7 +47,6 @@ svg{
 }
 
 #monk{
-    /*position: absolute;*/
     margin: 70px;
     height: 0;
     animation: arize 3s ease-in 0s backwards;
@@ -70,22 +67,15 @@ svg{
 .pageText {
     margin: 0;
     text-transform: uppercase;
-    text-decoration: underline;
     font-size: 28px;
     padding: 0 42px;
     min-height: 200px;
 }
 
-.leftText p{
-    display: inline-block;
-    text-decoration: underline;
-    opacity: 0;
-}
-
 .pageText div{
     display: inline-block;
-    text-decoration: underline;
     text-transform: uppercase;
+    min-height: 200px;
 }
 
 #nav{
@@ -118,13 +108,12 @@ svg{
     width: 100%;
     min-height: 100px;
     top: 40%;
-    font-size: 26px;
-    text-decoration: underline;
+    font-size: 20px;
     cursor: pointer;
 }
 
 #arrowRight{
-    margin: 0 30px;
+    margin: 40px;
     float: right;
     width: 35px;
     height: 35px;
@@ -134,7 +123,7 @@ svg{
 }
 
 #arrowLeft {
-    margin: 0 30px;
+    margin: 40px;
     float: left;
     width: 35px;
     height: 35px;
@@ -152,7 +141,8 @@ svg{
     text-align: right;
     max-width: 20%;
 }
-.footerText{
+
+.footerText {
     font-weight: normal;
 }
 
@@ -164,7 +154,7 @@ li {
     display: inline;
 }
 
-.footer li{
+.footer li {
     border: 0.1rem dashed;
     padding: 5px;
 }
@@ -180,33 +170,24 @@ li div{
     padding: 0 6px;
 }
 
-li div:hover{
+li div:hover {
     cursor: pointer;
 }
+
 .active {
     height: 13px;
     background-color: #fff;
 }
 
-button {
-    cursor: pointer;
-    position: relative;
-    width: 80px;
-    height: 50px;
-    margin: 20px;
-    color: #fff;
-}
-
-.arrow > div{
+.arrow div {
     display: inline-block;
 }
 
-.arrow h1{
-    top: 30%;
+.arrow h1 {
     text-transform: uppercase;
 }
 
-.lastPage{
+.lastPage {
     text-align: right;
     right: 10%;
     display: none;
@@ -215,23 +196,16 @@ button {
     font-size: 14px;
 }
 
-.contacts {
-    font-size: 12px;
-    transform: rotate(-135deg);
-}
-
-.arrowRight p{
+.arrowRight p {
     text-align: right;
 }
 
-#leftTooltip{
-    text-decoration: underline;
+#leftTooltip {
     float: left;
     transition: opacity 1s linear;
-    margin: 30px;
+    /*margin: 30px;*/
 }
 #rightTooltip {
-    text-decoration: underline;
     float: right;
     transition: opacity 1s linear;
     opacity: 0;
@@ -382,32 +356,26 @@ button {
 
 @keyframes arize {
     0% {
-        /*top: 300px;*/
         height: 0px;
     }
 
     50% {
-        /*top: 350px;*/
         height: 149px;
     }
     100% {
-        /*top: 350px;*/
         height: 149px;
     }
 }
 
 @-webkit-keyframes  arize {
     0% {
-        /*top: 300px;*/
         height: 0px;
     }
 
     50% {
-        /*top: 350px;*/
         height: 149px;
     }
     100% {
-        /*top: 350px;*/
         height: 149px;
     }
 }
