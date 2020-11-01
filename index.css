@@ -45,7 +45,7 @@ h1 {
     width: 100%;
     height: 200px;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 0.6vw;
 }
 
 .monk {
@@ -96,9 +96,9 @@ h1 {
 .pageText {
     margin: 40px 0;
     text-transform: uppercase;
-    font-size: 28px;
+    font-size: 1.7vw;
     padding: 0 42px;
-    min-height: 200px;
+    min-height: 20%;
 }
 
 .pageText div {
@@ -131,7 +131,7 @@ h1 {
     padding-left: 42px;
     margin-top: 0.2em;
     margin-bottom: 0.3em;
-    font-size: 14px;
+    font-size: 0.8vw;
     font-weight: normal;
     opacity: 1;
 }
@@ -142,7 +142,7 @@ h1 {
     width: 100%;
     min-height: 100px;
     top: 40%;
-    font-size: 20px;
+    font-size: 1.3vw;
 }
 
 #arrowRight {
@@ -228,7 +228,7 @@ li div:hover {
     display: none;
     position: absolute;
     line-height: 4px;
-    font-size: 14px;
+    font-size: 0.8vw;
 }
 
 .arrowRight p {
@@ -310,10 +310,10 @@ li div:hover {
         font-size: 0;
     }
     75% {
-        font-size: 18px;
+        font-size: 1vw;
     }
     100% {
-        font-size: 16px;
+        font-size: 0.8vw;
     }
 }
 
@@ -322,17 +322,17 @@ li div:hover {
         font-size: 0;
     }
     75% {
-        font-size: 18px;
+        font-size: 1vw;
     }
     100% {
-        font-size: 16px;
+        font-size: 0.8vw;
     }
 }
 
 @keyframes textHide {
     0% {
         opacity: 1;
-        font-size: 16px;
+        font-size: 0.8vw;
     }
     100% {
         opacity: 0;
@@ -343,7 +343,7 @@ li div:hover {
 @-webkit-keyframes textHide {
     0% {
         opacity: 1;
-        font-size: 16px
+        font-size: 0.8vw;
     }
     100% {
         opacity: 0;
@@ -376,7 +376,7 @@ li div:hover {
     }
     100% {
         opacity: 1;
-        font-size: 16px;
+        font-size: 0.8vw;
     }
 }
 
@@ -387,7 +387,7 @@ li div:hover {
     }
     100% {
         opacity: 1;
-        font-size: 16px;
+        font-size: 0.8vw;
     }
 }
 
