@@ -7,8 +7,8 @@ function init(){
 	// const right = document.getElementById('arrowRight').getElementsByTagName('p')[0];
 
 	const pages = document.getElementById('navigate').getElementsByTagName('li');
-	const footerMessage = document.querySelector('.footerText > p');
-	const footerText = document.querySelectorAll("div.footer > p");
+	const footerText = document.querySelector('.footerText > p');
+	const footerFirstPage = document.querySelectorAll("div.footer > p");
 	const arrowLeft = document.querySelector('.arrowLeft');
 	const arrowRight = document.querySelector('.arrowRight');
     const leftTooltip = document.getElementById('leftTooltip');
@@ -40,17 +40,23 @@ function init(){
         document.querySelector('div.active').classList.remove('active');
         pages[pageNumber].getElementsByTagName('div')[0].classList.add("active");
         //text of footer animation
-        footerMessage.innerHTML = pageNumber < 9&& pageNumber > 0?`Step ${pageNumber} of 8 on the path to digital enlightenment.`:'';
-        animateEvents(footerMessage, 'show');
+        footerText.innerHTML = pageNumber < 9 && pageNumber > 0 ? `Step ${pageNumber} of 8 on the path to digital enlightenment.`:'';
+        animateEvents(footerText, 'show');
         document.body.style.backgroundPosition = pagesPosition[pageNumber] + "%";
         
 		if (pageNumber === 0) {
 			leftTooltip.style.opacity = 1;
 			leftMessage.innerHTML = "";
 			animateEvents(leftMessage, 'hide');
+            footerFirstPage.forEach((p) => {
+                animateEvents(p, 'show')
+            });
 		} else if (currentPage === 0) {
-			leftTooltip.style.opacity = 0;
-		}
+            leftTooltip.style.opacity = 0;
+            footerFirstPage.forEach((p) => {
+                animateEvents(p, 'hide')
+            });
+        }
 		
 		if (pageNumber === 9) {
 			rightTooltip.style.opacity = 1;
@@ -82,12 +88,9 @@ function init(){
         setTimeout(() => {messageInner.innerHTML = messageInner.innerHTML.slice(0, -1) + (message2)}, 1500);
     }
     function animateEvents(element, className) {
-        //if element has not className
         element.classList.remove(className);
         window.requestAnimationFrame( function () {
-        	console.log("2222");
             element.classList.add(className);
-            console.log('3333');
         });
     }
 }
