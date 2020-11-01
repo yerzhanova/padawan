@@ -8,7 +8,7 @@ body {
 body{
     background-color: #000;
     background-repeat: no-repeat;
-    background-image: url('./assets/images/interface.png');
+    /*background-image: url('./assets/images/interface.png');*/
     background-size: cover;
     margin: auto 0;
     color: #fff;
@@ -20,10 +20,11 @@ h1 {
     display: inline;
     border-bottom: 1px solid #fff;
 }
+
 .logo {
     position: absolute;
     width: 100px;
-    bottom: 20px;
+    bottom: 40px;
     right: 30px;
 }
 
@@ -47,15 +48,14 @@ h1 {
     font-size: 10px;
 }
 
-#monk{
+.monk {
     margin: 70px;
     height: 0;
     animation: arize 3s ease-in 0s backwards;
     -webkit-animation: arize 3s ease-in 0s backwards;
 }
 
-.monk {
-    margin: 0;
+.monkWrapper {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -65,36 +65,69 @@ h1 {
     -webkit-animation: jump 3s ease-in-out 0s backwards;
 }
 
+.patience {
+    font-size: 0;
+    animation: textShow 0.2s 1.5s forwards, textSlide 0.2s 2.2s forwards;
+    -webkit-animation: textShow 0.2s 1.5s forwards, textSlide 0.2s 2.2s forwards;
+}
+
+.exclamation {
+    font-size: 0;
+    transform: translateX(50px);
+    animation: textShow 0.2s 1.5s forwards, textSlide 0.3s 1.6s forwards, textHide 0.3s 1.7s forwards;
+    -webkit-animation: textShow 0.2s 1.5s forwards, textSlide 0.3s 1.6s forwards, textHide 0.3s 1.7s forwards;
+}
+
+.comma {
+    opacity: 0;
+    font-size: 0;
+    animation: textSlide 0.2s 2.2s forwards, commaShow 0.1s 2.3s forwards;
+    -webkit-animation: textSlide 0.2s 2.2s forwards, commaShow 0.1s 2.3s forwards;
+}
+
+.addText {
+    margin-left: 6px;
+    opacity: 0;
+    font-size: 0;
+    animation: textSlide 0.2s 2.2s forwards, commaShow 0.1s 2.3s forwards;
+    -webkit-animation: textSlide 0.2s 2.2s forwards, commaShow 0.1s 2.3s forwards;
+}
+
 .pageText {
-    margin: 0;
+    margin: 40px 0;
     text-transform: uppercase;
     font-size: 28px;
     padding: 0 42px;
     min-height: 200px;
 }
 
-.pageText div{
+.pageText div {
     display: inline-block;
     text-transform: uppercase;
     min-height: 200px;
 }
 
-#nav{
+#nav {
     margin-top: 50px;
 }
 
 .message {
-    margin-top: 48px;
+    margin-top: 20px;
+    margin-left: 30px;
     opacity: 0;
-    animation: messagePadawan 2s ease-in 1s backwards;
-    -webkit-animation: messagePadawan 2s ease-in 1s backwards;
+    animation: messagePadawan 2.8s ease-in 0.2s backwards;
+    -webkit-animation: messagePadawan 2.8s ease-in 0.2s backwards;
 }
 
-.footer div{
+.message p {
+    display: inline;
+}
+
+.footer div {
     display: inline-block;
 }
 
-.footer p{
+.footer p {
     padding-left: 42px;
     margin-top: 0.2em;
     margin-bottom: 0.3em;
@@ -103,17 +136,16 @@ h1 {
     opacity: 1;
 }
 
-.arrow{
+.arrow {
     margin: 0;
     position: absolute;
     width: 100%;
     min-height: 100px;
     top: 40%;
     font-size: 20px;
-    cursor: pointer;
 }
 
-#arrowRight{
+#arrowRight {
     margin: 40px;
     float: right;
     width: 35px;
@@ -121,6 +153,7 @@ h1 {
     border-top: 2px solid #fff;
     border-left: 2px solid #fff;
     transform: rotate(135deg);
+    cursor: pointer;
 }
 
 #arrowLeft {
@@ -131,6 +164,7 @@ h1 {
     border-top: 2px solid #fff;
     border-left: 2px solid #fff;
     transform: rotate(-45deg);
+    cursor: pointer;
 }
 
 .leftMessage {
@@ -167,7 +201,7 @@ li a:visited {
     text-decoration: none;
 }
 
-li div{
+li div {
     padding: 0 6px;
 }
 
@@ -180,7 +214,7 @@ li div:hover {
     background-color: #fff;
 }
 
-.arrow div {
+.arrow > div {
     display: inline-block;
 }
 
@@ -190,7 +224,7 @@ li div:hover {
 
 .lastPage {
     text-align: right;
-    right: 10%;
+    right: 3%;
     display: none;
     position: absolute;
     line-height: 4px;
@@ -214,7 +248,7 @@ li div:hover {
 }
 
 .hide {
-    animation: hideWrapper 2s linear 0s forwards;
+    animation: hideWrapper 1s linear 0s forwards;
     -webkit-animation: hideWrapper 2s linear 0s forwards;
 }
 
@@ -268,6 +302,92 @@ li div:hover {
     }
     100% {
         opacity: 100;
+    }
+}
+
+@keyframes textShow {
+    0% {
+        font-size: 0;
+    }
+    75% {
+        font-size: 18px;
+    }
+    100% {
+        font-size: 16px;
+    }
+}
+
+@-webkit-keyframes textShow {
+    0% {
+        font-size: 0;
+    }
+    75% {
+        font-size: 18px;
+    }
+    100% {
+        font-size: 16px;
+    }
+}
+
+@keyframes textHide {
+    0% {
+        opacity: 1;
+        font-size: 16px;
+    }
+    100% {
+        opacity: 0;
+        font-size: 0;
+    }
+}
+
+@-webkit-keyframes textHide {
+    0% {
+        opacity: 1;
+        font-size: 16px
+    }
+    100% {
+        opacity: 0;
+        font-size: 0;
+    }
+}
+
+@keyframes textSlide {
+    0% {
+        transform: translateX(50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes textSlide {
+    0% {
+        transform: translateX(50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes commaShow {
+    0% {
+        opacity: 0;
+        font-size: 0;
+    }
+    100% {
+        opacity: 1;
+        font-size: 16px;
+    }
+}
+
+@-webkit-keyframes commaShow {
+    0% {
+        opacity: 0;
+        font-size: 0;
+    }
+    100% {
+        opacity: 1;
+        font-size: 16px;
     }
 }
 
@@ -357,7 +477,7 @@ li div:hover {
 
 @keyframes arize {
     0% {
-        height: 0px;
+        height: 0;
     }
 
     50% {
@@ -370,7 +490,7 @@ li div:hover {
 
 @-webkit-keyframes  arize {
     0% {
-        height: 0px;
+        height: 0;
     }
 
     50% {
